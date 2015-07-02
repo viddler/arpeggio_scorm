@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="scripts/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="content/util/APIWrapper.js"></script>
+    <script type="text/javascript" src="//static.cdn-ec.viddler.com/js/arpeggio/v3/build/main-built.js"></script>
+    <script type="text/javascript">
+      var videoEmbed;
+      function initializeViddlerEmbed(configFile){
+        $.ajax({
+          type: "GET",
+          url: configFile,
+          dataType: 'json',
+          success: function(data) {
+            var duration;
+            doInitialize();
+            videoEmbed = new ViddlerEmbed($.extend(data, {
+              target: '#video-embed'
+            }));
+
+            // Calculate the duration
+            videoEmbed.manager.events.on('videoPlayer:play', function() {
+              duration = videoEmbed.manager.currentMediaElement().duration;
+            });
+
+            // Update progress percentage
+            videoEmbed.manager.events.on('videoPlayer:timeupdate', function() {
+              // May not have duration yet if this event was fired immediately called after play
+              if(duration) {
+                var progress = videoEmbed.manager.currentTime / duration;
+                doSetValue('cmi.progress_measure', progress);
+              }
+            });
+
+            // Video ended so set progress percentage to 100%
+            videoEmbed.manager.events.on('videoPlayer:ended', function() {
+              doSetValue('cmi.progress_measure', 1);
+            });
+
+            new ViddlerEmbed($.extend(data, {
+              target: '#comments-embed',
+              type: 'comments'
+            }));
+          },
+          error: function(xhr, ajaxOptions, thrownError) {
+            console.log('error loading data',this,arguments);
+            alert('There was an error loading the configuration file - '+thrownError);
+          }
+        });
+      }
+
+      function pageUnload() {
+        var completionStatus = videoEmbed.manager.currentTime / videoEmbed.manager.timelineDuration();
+        doSetValue("cmi.completion_status", completionStatus);
+        doTerminate();
+      }
+    </script>
+  </head>
+  <body onunload="pageUnload()">
+    <div id="video-embed"></div>
+    <div id="comments-embed"></div>
+    <script>
+      initializeViddlerEmbed('config.json');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<?xml version="1.0" ?>
+<lom xmlns="http://ltsc.ieee.org/xsd/LOM" 
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:pkgprop="http://www.scorm.com/xsd/ScormEnginePackageProperties"
+     xsi:schemaLocation="http://ltsc.ieee.org/xsd/LOM lomLoose.xsd 
+                         http://www.scorm.com/xsd/ScormEnginePackageProperties ScormEnginePackageProperties.xsd">
+  <general>
+   
+    <identifier>
+      <catalog>URI</catalog>
+      <entry>com.scorm.videoSco.portrait.mp4</entry>
+    </identifier>
+    
+    <title>
+      <string>portrait</string>
+    </title>
+
+    <language>en</language>
+
+    <description>
+      <string>hello</string>
+    </description>
+    
+    
+    
+    <structure>
+      <source>LOMv1.0</source>
+      <value>atomic</value>
+    </structure>
+    
+    <aggregationLevel>
+      <source>LOMv1.0</source>
+      <value>1</value>
+    </aggregationLevel>
+    
+  </general>
+  
+  <lifeCycle>
+  	<contribute>
+      <role>
+        <source>LOMv1.0</source>
+        <value>technical implementer</value>
+      </role>
+      <entity>
+		<![CDATA[BEGIN:VCARD
+VERSION:2.1
+FN:Mike Rustici
+ORG:Rustici Software
+TEL;WORK;VOICE:(866) 49-SCORM
+ADR;WORK:;;3351 Aspen Grove Dr Ste 300;Franklin;TN;37067;United States of America
+EMAIL;PREF;INTERNET:info@scorm.com
+END:VCARD]]>
+      </entity>
+      <date>
+        <dateTime>2015-06-11</dateTime>
+        <description>
+          <string language="en-US">This is the date the course generator was developed.</string>
+        </description>
+      </date>
+    </contribute>
+    <contribute>
+      <role>
+        <source>LOMv1.0</source>
+        <value>publisher</value>
+      </role>
+      <entity>
+		 
+      </entity>
+      <date>
+        <dateTime></dateTime>
+        <description>
+          <string language="en-US">This is the date the video was updated.</string>
+        </description>
+      </date>
+    </contribute>
+    
+    <contribute>
+      <role>
+        <source>LOMv1.0</source>
+        <value>content provider</value>
+      </role>
+      <entity>
+        <![CDATA[BEGIN:VCARD
+VERSION:2.1
+FN:matt
+END:VCARD]]>
+      </entity>
+      <date>
+        <dateTime></dateTime>
+        <description>
+          <string language="en-US">This is the date the video was updated.</string>
+        </description>
+      </date>
+    </contribute>
+    
+  </lifeCycle>
+  
+  <technical>
+
+    <format>text/html</format>
+    <format>image/jpeg</format>
+    <format>application/x-javascript</format>
+    <format>application/x-shockwave-flash</format>
+    <format>text/css</format>
+
+    <location></location>
+
+    
+    <pkgprop:ScormEnginePackageProperties xmlns="http://www.scorm.com/xsd/ScormEnginePackageProperties">
+      
+      <appearence>
+        <displayStage>
+          <desired>
+            <width>680</width>
+            <height>700</height>
+            <fullscreen>no</fullscreen>
+          </desired>
+          <required>
+            <width>0</width>
+            <height>0</height>
+            <fullscreen>no</fullscreen>
+          </required>
+        </displayStage>
+      </appearence>
+      <behavior>
+        <resetRtTiming>never</resetRtTiming>
+        <rollupEmptySetToUnknown>yes</rollupEmptySetToUnknown>
+      </behavior>
+    </pkgprop:ScormEnginePackageProperties>
+    
+    <installationRemarks>
+      <string language="en-us">Nothing to install.</string>
+    </installationRemarks>
+
+    <otherPlatformRequirements>
+      <string language="en-us"></string>
+    </otherPlatformRequirements>
+
+    <duration>
+      <duration></duration>
+      <description>
+        <string language="en-us">The duration of the actual video.</string>
+      </description>
+    </duration>
+    
+  </technical>
+
+  <educational>
+
+    <typicalLearningTime>
+      <duration></duration>
+      <description>
+        <string language="en-us">The duration of the actual video.</string>
+      </description>
+    </typicalLearningTime>
+
+  </educational>
+  
+  <rights>
+
+    <cost>
+      <source>LOMv1.0</source>
+      <value>no</value>
+    </cost>
+
+    <copyrightAndOtherRestrictions>
+      <source>LOMv1.0</source>
+      <value>yes</value>
+    </copyrightAndOtherRestrictions>
+
+    <description>
+      <string></string>
+    </description>
+  </rights>
+  
+</lom>
