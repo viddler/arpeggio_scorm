@@ -1,13 +1,13 @@
 require_relative 'test_helper'
 
-class TestArpeggioScormGenerator < Minitest::Test
+class TestArpeggioScorm< Minitest::Test
   def setup
     options = {
       width: '100%',
       videoId: 'abc123'
     }
     @temp_file = Tempfile.new('built.zip')
-    generator = ArpeggioScormGenerator::Generator.new(options, @temp_file)
+    generator = ArpeggioScorm::Generator.new(options, @temp_file)
     generator.generate
   end
 

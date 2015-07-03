@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'arpeggio_scorm_generator/version'
+require 'arpeggio_scorm/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "arpeggio_scorm_generator"
-  spec.version       = ArpeggioScormGenerator::VERSION
+  spec.name          = "arpeggio_scorm"
+  spec.version       = ArpeggioScorm::VERSION
   spec.authors       = ["Matt Fawcett"]
   spec.email         = ["fawcett@viddler.com"]
 

@@ -1,8 +1,8 @@
-require "arpeggio_scorm_generator/version"
+require "arpeggio_scorm/version"
 require "zip"
 require "json"
 
-module ArpeggioScormGenerator
+module ArpeggioScorm
   class Generator
     def initialize(options, output_file)
       @options = options
