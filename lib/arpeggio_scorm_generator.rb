@@ -1,9 +1,11 @@
 require "arpeggio_scorm_generator/version"
 require "zip"
+require "json"
 
 module ArpeggioScormGenerator
   class Generator
     def initialize(options, output_file)
+      @options = options
       @output_file = output_file.path
     end
 
@@ -13,10 +15,17 @@ module ArpeggioScormGenerator
 
       ::Zip::File.open(@output_file, ::Zip::File::CREATE) do |io|
         write_entries entries, '', io
+        write_config_json io
       end
     end
 
     private
+
+    def write_config_json(io)
+      io.get_output_stream('arpeggio_scorm_package/config.json') do |f|
+        f.puts(@options.to_json)
+      end
+    end
 
     # A helper method to make the recursion work.
     def write_entries(entries, path, io)

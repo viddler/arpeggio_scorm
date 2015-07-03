@@ -21,6 +21,11 @@ class TestArpeggioScormGenerator < Test::Unit::TestCase
       expected = File.open(File.dirname(__FILE__) + '/../template/content/util/APIWrapper.js', 'rb').read
       actual   = zip_file.glob('arpeggio_scorm_package/content/util/APIWrapper.js').first.get_input_stream.read
       assert_equal expected, actual
+
+      # ensure we have dynamically generated config.json
+      expected = File.open(File.dirname(__FILE__) + '/expected_config.json', 'rb').read
+      actual   = zip_file.glob('arpeggio_scorm_package/config.json').first.get_input_stream.read
+      assert_equal expected, actual
     end
 
   end
