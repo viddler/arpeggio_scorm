@@ -23,7 +23,7 @@ module ArpeggioScormGenerator
 
     def write_config_json(io)
       io.get_output_stream('arpeggio_scorm_package/config.json') do |f|
-        f.puts(@options.to_json)
+        f.puts(JSON.pretty_generate(@options))
       end
     end
 
