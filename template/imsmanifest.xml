@@ -24,14 +24,13 @@ www.scorm.com
 	</metadata>
   	<organizations default="videoScoOrg">
 		<organization identifier="videoScoOrg" adlseq:objectivesGlobalToSystem="false">
-			<title>portrait</title>
+			<title>video</title>
 			<item identifier="item_1" identifierref="resource_1">
-				<title>portrait</title>
+				<title>video</title>
         		<imsss:sequencing>
           			<imsss:rollupRules objectiveMeasureWeight="0"></imsss:rollupRules>
           			<imsss:deliveryControls completionSetByContent="true" objectiveSetByContent="true"/>
         		</imsss:sequencing>
-        		<adlcp:dataFromLMS>portrait.mp4</adlcp:dataFromLMS>
 			</item>
       		<imsss:sequencing>
         		<imsss:controlMode choice="true" flow="true"/>
