@@ -6,6 +6,7 @@
     <script type="text/javascript" src="//static.cdn-ec.viddler.com/js/arpeggio/v3/build/main-built.js"></script>
     <script type="text/javascript">
       var videoEmbed;
+      var completionStatus = 'not attempted';
       function initializeViddlerEmbed(configFile){
         $.ajax({
           type: "GET",
@@ -21,6 +22,7 @@
             // Calculate the duration
             videoEmbed.manager.events.on('videoPlayer:play', function() {
               duration = videoEmbed.manager.currentMediaElement().duration;
+              completionStatus = 'incomplete';
             });
 
             // Update progress percentage
@@ -35,6 +37,7 @@
             // Video ended so set progress percentage to 100%
             videoEmbed.manager.events.on('videoPlayer:ended', function() {
               doSetValue('cmi.progress_measure', 1);
+              completionStatus = 'completed';
             });
 
             new ViddlerEmbed($.extend(data, {
@@ -50,7 +53,6 @@
       }
 
       function pageUnload() {
-        var completionStatus = videoEmbed.manager.currentTime / videoEmbed.manager.timelineDuration();
         doSetValue("cmi.completion_status", completionStatus);
         doTerminate();
       }
