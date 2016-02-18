@@ -42,7 +42,8 @@
 
             new ViddlerEmbed($.extend(data, {
               target: '#comments-embed',
-              type: 'comments'
+              type: 'comments',
+              hideCommentEmbedIfNoComments: true
             }));
           },
           error: function(xhr, ajaxOptions, thrownError) {
